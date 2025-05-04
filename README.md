@@ -1,5 +1,5 @@
 # Arch Linux installer
-----------------------
+
 This is my Arch Linux installer script. To use the installer, boot into an
 Arch ISO and run the following commands:
 
@@ -10,7 +10,7 @@ archiso# ./my-arch-installer/installer.sh
 ```
 
 # Configuration
----------------
+
 I tried to make the installer fairly modular, in the top section of the script
 you can change variables to change how the installer works, ie:
 
@@ -37,7 +37,7 @@ you can change variables to change how the installer works, ie:
 - $*_OPTIONS : options to pass to to mount (-o)
 
 # Testing
----------
+
 Thanks to [qemus/qemu](https://github.com/qemus/qemu) you can test the installer
 in a virtual machine pretty easily with Docker Compose.
 
@@ -69,6 +69,6 @@ host# rm -fr ./vm-files/data.img
 ```
 
 # Feature Wishlist
-------------------
+
 - Allow installing a kernel other than `linux`, ie `linux-lts`
 - Make the AUR helper optional
