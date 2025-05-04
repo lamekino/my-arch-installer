@@ -16,7 +16,7 @@ you can change variables to change how the installer works, ie:
 
 ### Directories
 - $MNT: path to mount the system to
-- $ESP: path for UEFI partition (either /boot/efi or /efi [UNTESTED])
+- $ESP: path for UEFI partition (either /boot/efi or /efi [**UNTESTED**])
 - $CFG: the directory to copy configurations from
 - $PKG_ROOT: the directory to build AUR packages in chroot
 
@@ -50,7 +50,7 @@ GDM won't start in the VM. It can be disabled in the installer by setting the
 host# docker compose up
 ```
 
-### 2. Open the VM in a web browser: [localhost:8006](http://127.0.0.1:8006/).
+### 2. Open the VM in a web browser: [localhost:8006](http://127.0.0.1:8006/)
 
 ### 3. Mount the installer directory
 
