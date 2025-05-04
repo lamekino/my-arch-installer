@@ -1,4 +1,5 @@
 # Arch Linux installer
+----------------------
 This is my Arch Linux installer script. To use the installer, boot into an
 Arch ISO and run the following commands:
 
@@ -9,6 +10,7 @@ archiso# ./my-arch-installer/installer.sh
 ```
 
 # Configuration
+---------------
 I tried to make the installer fairly modular, in the top section of the script
 you can change variables to change how the installer works, ie:
 
@@ -35,31 +37,38 @@ you can change variables to change how the installer works, ie:
 - $*_OPTIONS : options to pass to to mount (-o)
 
 # Testing
+---------
 Thanks to [qemus/qemu](https://github.com/qemus/qemu) you can test the installer
 in a virtual machine pretty easily with Docker Compose.
 
 GDM won't start in the VM. It can be disabled in the installer by setting the
 `INSTALLER_ENABLE_DISPLAY_MANAGER` variable to 0.
 
-1. Start the VM:
+### 1. Start the VM:
+
 ```
 host# docker compose up
 ```
 
-2. Open [http://127.0.0.1:8006/](http://127.0.0.1:8006/) in a web browser.
+### 2. Open the VM in a web browser: [localhost:8006](http://127.0.0.1:8006/).
 
-3. Mount the installer directory (bind ./utils/vm-mount-ydotool.sh to a keyboard
-macro to automate copying this to the VM)
+### 3. Mount the installer directory
+
 ```
 vm-archiso# mkdir -p '/net'
 vm-archiso# mount -t 9p -o trans=virtio 'shared' '/net'
 ```
 
-4. Reset the installation and remove the VM's data
+You can bind `./utils/vm-mount-ydotool.sh` to a keyboard macro to automate
+copying this to the VM window.
+
+### 4. Reset the installation and remove the VM's data
+
 ```
 host# rm -fr ./vm-files/data.img
 ```
 
-# Things that might be added eventually
+# Feature Wishlist
+------------------
 - Allow installing a kernel other than `linux`, ie `linux-lts`
 - Make the AUR helper optional
