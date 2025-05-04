@@ -1,0 +1,7 @@
+# vim:ft=dosini
+
+[fix-touchpad]
+MatchName=*PIXA*Touchpad
+AttrResolutionHint=31x31
+AttrPressureRange=10:8
+ModelChromebook=1

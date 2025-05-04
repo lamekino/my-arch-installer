@@ -1,0 +1,12 @@
+# https://aur.archlinux.org/packages/pacman-cleanup-hook
+
+[Trigger]
+Type = Package
+Operation = Upgrade
+Target = *
+
+[Action]
+Description = Removing obsolete cached package files...
+Depends = pacman-contrib
+When = PostTransaction
+Exec = /usr/bin/paccache -rk2

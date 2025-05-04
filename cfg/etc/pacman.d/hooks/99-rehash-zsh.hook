@@ -1,0 +1,26 @@
+# https://wiki.archlinux.org/title/Zsh#On-demand_rehash
+#
+# Warning: This sends SIGUSR1 to all running zsh instances. Note that the
+# default behavior for SIGUSR1 is terminate so when you first configure this
+# all running zsh instances of all users (including login shells) will
+# terminate if they have not sourced the trap below.
+#
+# +----------------------------------------------------------------------------+
+# | ~/.zshrc                                                                   |
+# +----------------------------------------------------------------------------+
+# | TRAPUSR1() { rehash }                                                      |
+# +----------------------------------------------------------------------------+
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Path
+Target = usr/bin/*
+
+[Action]
+Description = Rehashing Zsh completion...
+Depends = zsh
+Depends = procps-ng
+When = PostTransaction
+Exec = /usr/bin/pkill zsh --signal=USR1

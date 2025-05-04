@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Checking for system vulnerabilities...
+Depends = curl
+Depends = openssl
+Depends = arch-audit
+When = PostTransaction
+Exec = /usr/bin/arch-audit -c -u
